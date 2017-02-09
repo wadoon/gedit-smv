@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ This file is part of GtkSourceView
+
+ Author: Alexander Weigl <weigl@kit.edu>
+
+ GtkSourceView is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+
+ GtkSourceView is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+-->
+
+
+<language id="smv" _name="SMV" version="2.0" _section="Source">
+  <metadata>
+    <property name="mimetypes">text/x-smv</property>
+    <property name="globs">*.smv</property>
+    <property name="line-comment-start">--</property>
+  </metadata>
+
+  <styles>
+    <style id="comment"           _name="Comment"                map-to="def:comment"/>
+    <style id="keyword"          _name="keywords"               map-to="def:keyword"/>
+    <style id="types"             _name="Type"                   map-to="def:type"/>
+  </styles>
+
+  <definitions>
+
+    <context id="smv" class="no-spell-check">
+      <include>
+        <context ref="comment" />
+        <context ref="types" />
+        <context ref="keywords" />
+      </include>
+    </context>
+
+    <context id="types">
+      <include>
+        <context ref="enums"/>
+        <context ref="typekeywords"/>
+        <context ref="words"/>
+      </include>
+    </context>
+
+    <context id="enums" style-ref="types">
+      <start>{</start>
+      <end>}</end>
+    </context>
+    <context id="words" style-ref="types">
+      <match>(un)?signed word\[\d+\]</match>
+    </context>
+    <context id="typekeywords" style-ref="types">
+      <keyword>int</keyword>
+      <keyword>real</keyword>
+      <keyword>boolean</keyword>
+    </context>
+
+    <context id="keywords" style-ref="keyword">
+      <keyword>A</keyword>
+      <keyword>ABF</keyword>
+      <keyword>ABG</keyword>
+      <keyword>abs</keyword>
+      <keyword>AF</keyword>
+      <keyword>AG</keyword>
+      <keyword>array</keyword>
+      <keyword>ASSIGN</keyword>
+      <keyword>AX</keyword>
+      <keyword>bool</keyword>
+      <keyword>boolean</keyword>
+      <keyword>BU</keyword>
+      <keyword>case</keyword>
+      <keyword>COMPASSION</keyword>
+      <keyword>COMPID</keyword>
+      <keyword>COMPUTE</keyword>
+      <keyword>COMPWFF</keyword>
+      <keyword>CONSTANTS</keyword>
+      <keyword>CONSTARRAY</keyword>
+      <keyword>CONSTRAINT</keyword>
+      <keyword>count</keyword>
+      <keyword>CTLSPEC</keyword>
+      <keyword>CTLWFF</keyword>
+      <keyword>DEFINE</keyword>
+      <keyword>E</keyword>
+      <keyword>EBF</keyword>
+      <keyword>EBG</keyword>
+      <keyword>EF</keyword>
+      <keyword>EG</keyword>
+      <keyword>esac</keyword>
+      <keyword>EX</keyword>
+      <keyword>extend</keyword>
+      <keyword>F</keyword>
+      <keyword>FAIRNESS</keyword>
+      <keyword>FALSE</keyword>
+      <keyword>floor</keyword>
+      <keyword>FROZENVAR</keyword>
+      <keyword>FUN</keyword>
+      <keyword>G</keyword>
+      <keyword>H</keyword>
+      <keyword>IN</keyword>
+      <keyword>in</keyword>
+      <keyword>INIT</keyword>
+      <keyword>init</keyword>
+      <keyword>Integer</keyword>
+      <keyword>integer</keyword>
+      <keyword>INVAR</keyword>
+      <keyword>INVARSPEC</keyword>
+      <keyword>ISA</keyword>
+      <keyword>ITYPE</keyword>
+      <keyword>IVAR</keyword>
+      <keyword>JUSTICE</keyword>
+      <keyword>LTLSPEC</keyword>
+      <keyword>LTLWFF</keyword>
+      <keyword>MAX</keyword>
+      <keyword>max</keyword>
+      <keyword>MDEFINE</keyword>
+      <keyword>MIN</keyword>
+      <keyword>min</keyword>
+      <keyword>MIRROR</keyword>
+      <keyword>mod</keyword>
+      <keyword>MODULE</keyword>
+      <keyword>NAME</keyword>
+      <keyword>next</keyword>
+      <keyword>NEXTWFF</keyword>
+      <keyword>O</keyword>
+      <keyword>of</keyword>
+      <keyword>PRED</keyword>
+      <keyword>PREDICATES</keyword>
+      <keyword>PSLSPEC</keyword>
+      <keyword>Real</keyword>
+      <keyword>real</keyword>
+      <keyword>resize</keyword>
+      <keyword>S</keyword>
+      <keyword>self</keyword>
+      <keyword>signed</keyword>
+      <keyword>SIMPWFF</keyword>
+      <keyword>sizeof</keyword>
+      <keyword>SPEC</keyword>
+      <keyword>swconst</keyword>
+      <keyword>T</keyword>
+      <keyword>toint</keyword>
+      <keyword>TRANS</keyword>
+      <keyword>TRUE</keyword>
+      <keyword>typeof</keyword>
+      <keyword>U</keyword>
+      <keyword>union</keyword>
+     <keyword>unsigned</keyword>
+      <keyword>uwconst</keyword>
+      <keyword>V</keyword>
+      <keyword>VAR</keyword>
+      <keyword>Word</keyword>
+      <keyword>word</keyword>
+      <keyword>word1</keyword>
+      <keyword>X</keyword>
+      <keyword>xnor</keyword>
+      <keyword>xor</keyword>
+      <keyword>Y</keyword>
+      <keyword>Z</keyword>
+    </context>
+
+
+    <context id="comment" style-ref="comment" class-disabled="no-spell-check" class="comment" >
+      <start>--</start>
+      <end>$</end>
+    </context>
+
+
+  </definitions>
+</language>
